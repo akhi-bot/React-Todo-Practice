@@ -1,12 +1,17 @@
 import TodoContext from "../store/todo-context";
 import TodoItem from "./TodoItem";
 import classes from './TodoList.module.css';
-import {Fragment, useContext, } from "react";
+import {Fragment, useContext,} from "react";
+
 
 
 
 const TodoList =() => {
     const todoContext = useContext(TodoContext)
+
+    if(todoContext.todo.length=== 0) {
+        todoContext.show = false
+    }
     return (
         <Fragment>
        {todoContext.show && <ul className= {classes.list}>

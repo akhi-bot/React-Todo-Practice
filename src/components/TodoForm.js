@@ -1,17 +1,18 @@
 import classes from './TodoForm.module.css'
-import {useRef, useContext, useEffect} from 'react'
+import ReactDom from 'react-dom'
+import {useRef, useContext, useState,} from 'react'
 import TodoContext from '../store/todo-context'
+import { GrAdd } from "react-icons/gr";
 
 const TodoForm = () => {
+    const [showForm, setShowForm] = useState(false)
      const todoContext = useContext(TodoContext)
     const inputRef = useRef(null)
+ 
+    const formHandler = () => {
+        setShowForm(true)
+    }
 
-    useEffect(() => {
-        inputRef.current.focus()
-    })
-   
-
-    const todo = todoContext.edit.state?  "Edit Todo" : "Add Todo" 
     
     const submitHandler = (e) => {
         e.preventDefault()
@@ -19,25 +20,26 @@ const TodoForm = () => {
         if(inputValue=== '') {
             return;
         }
-        if(todoContext.edit.state) {
-            const id = todoContext.edit.id
-
-            todoContext.todo.splice((id-1),1,{id: id , todo: inputValue})
-            todoContext.removeUpdateInput()
-        } else {
+      
        
         todoContext.newTodo(inputValue)
         todoContext.showTodo()
-        }
-        inputRef.current.value = ''
+        inputRef.current.value= ''
+        setShowForm(false)
     } 
 
 
     return (
-        <form onSubmit= {submitHandler} className= {classes.form}>
-            <input type="text" ref = {inputRef}  />
-            <button>{todo}</button>
-        </form>
+        <div className = {classes['new-todo']}>
+        {showForm && <form onSubmit= {submitHandler} className= {classes.form}>
+            <textarea row = '5' ref = {inputRef}></textarea>
+            <button>Add Todo</button>
+        </form>}
+    
+        {ReactDom.createPortal(
+        <p className = {classes.add}><GrAdd className= {classes.icon} onClick = {formHandler}/>New Todo</p>
+        , document.getElementById('add-icon'))}
+        </div>
     )
 } 
 

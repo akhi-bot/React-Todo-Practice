@@ -3,6 +3,14 @@
 }
 
 .empty {
-    color: yellowvs
+    display: flex;
+    border: 1px solid yellow;
+    color: whitesmoke;
+    box-shadow: 0 3px 2px rgba(121, 137, 214, 0.8);
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: rgba(124, 124, 211, 0.9);
 }
 
