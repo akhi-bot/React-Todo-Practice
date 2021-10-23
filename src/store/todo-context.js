@@ -5,7 +5,6 @@ const TodoContext = React.createContext({
     show: false,
     remove: [],
     updateInput: (id) => {},
-    removeUpdateInput: () => {},
     newTodo: (item) => {},
     showTodo: () => {}
 })
@@ -31,7 +30,7 @@ export const TodoProvider = (props) => {
         const updateInputHandler = (todoId, value) => {
             const findedTodo = addTodo.find(({id}) => id === todoId)
             findedTodo.todo = value
-            return value
+            setAddTodo([...addTodo])
         }
     
     const showTodoHandler = () => {

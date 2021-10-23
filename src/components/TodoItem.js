@@ -38,12 +38,11 @@ const TodoItem = (props) => {
     setShowEditInput(false)
   } 
 
-  const editHandler = (e) => {
-    const editValue = todoContext.updateInput(props.id, e.target.value)
-    if(editValue === '') {
-      return ;
-    }
-    setEditInput(editValue)
+  const editFormHandler = (e) => {
+    e.preventDefault()
+    props.editTodo(props.id, editInput)
+    rejectConfirmation()
+    // const editValue = todoContext.updateInput(props.id, e.target.value)
   }
 
   return (
@@ -51,11 +50,12 @@ const TodoItem = (props) => {
       <li className={classes.item}>
         {showEditInput && ReactDom.createPortal(<form className= {classes.edit} >
           <div className={classes.card} >           
-            <input type="text" value={editInput} autoFocus onChange={editHandler}/>
-            <button onClick={rejectConfirmation}>Stop Editing</button>
+            <input type="text" value={editInput} autoFocus onChange={(e) => setEditInput(e.target.value)}/>
+            <button type="submit" onClick={editFormHandler}>submit</button>
+            <button onClick={rejectConfirmation}>cancel</button>
           </div>
         </form>, document.getElementById('edit-form'))}
-        <p>{confirmation ? `Are you sure want to ${edit? "Edit": "Delete"}` : editInput}</p>
+        <p>{confirmation ? `Are you sure want to ${edit? "Edit": "Delete"}` : props.item}</p>
         {confirmation ? (<div >
           <button onClick= {acceptConfirmation}>Yes</button>
           <button onClick= {rejectConfirmation}>NO</button>

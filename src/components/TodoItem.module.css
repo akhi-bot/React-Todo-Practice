@@ -78,6 +78,8 @@
     border: 1px solid #a44a3f;
     border-radius: 5px;
     padding: 5px;
+    margin: 0 0.10rem;
+    
   }
   .card button:hover {
     color: magenta;
