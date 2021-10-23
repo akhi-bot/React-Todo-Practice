@@ -40,10 +40,12 @@ h1{
 #add-icon {
  transform: translate(0, 600%);
  margin-right: 15px;
+ margin-left: auto;
  display: flex;
  justify-content: flex-end;
  position: sticky;
- top: 0;;
+ top: 0;
+ width: max-content;
 } 
 
 
