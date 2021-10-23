@@ -51,8 +51,10 @@ const TodoItem = (props) => {
         {showEditInput && ReactDom.createPortal(<form className= {classes.edit} >
           <div className={classes.card} >           
             <input type="text" value={editInput} autoFocus onChange={(e) => setEditInput(e.target.value)}/>
+            <div>
             <button type="submit" onClick={editFormHandler}>submit</button>
             <button onClick={rejectConfirmation}>cancel</button>
+            </div>
           </div>
         </form>, document.getElementById('edit-form'))}
         <p>{confirmation ? `Are you sure want to ${edit? "Edit": "Delete"}` : props.item}</p>
