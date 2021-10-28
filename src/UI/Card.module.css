@@ -1,10 +1,13 @@
 .card {
     width: 100%;
     height: max-content;
-    background-color: #1d3557;
     box-shadow: 0 3px 3px white;
     margin: 0 auto;
     text-align: start;
     margin-bottom: 1rem;
     border-radius: 10px;
+    background:  #5a11a3;
 }
+
+
+

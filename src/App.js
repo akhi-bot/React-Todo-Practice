@@ -7,14 +7,12 @@ import "./index.css";
 function App() {
   return (
     <Fragment>
-      <h1>Todo Application</h1>
       <TodoProvider>
+      <TodoForm />
+      <h1>Todo Application</h1> 
         <div className="todo">
-          <section className= "first">
+          <section className="first">
             <TodoList />
-          </section>
-          <section className = "first">
-            <TodoForm />
           </section>
         </div>
       </TodoProvider>

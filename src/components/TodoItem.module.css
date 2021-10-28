@@ -4,7 +4,6 @@
    padding: 5px 1rem;
 }
 
-
 .item div {
    display: flex;
    padding: 3px;
@@ -16,8 +15,8 @@
     height: 2rem;
     margin: 0 0.10rem;
     border-radius: 5px;
-    border: 1px solid rgb(230, 60, 60);
-    color: rgb(230, 60, 60);
+    border: 1.1px solid white;
+    color: white;
     padding: 3px;
     background-color:transparent;
 }
@@ -25,70 +24,172 @@
 
 
 .item button:first-child {
-    border: 1px solid rgb(41, 156, 223);
-    color: rgb(41, 156, 223);
+    border: 1.1px solid black;
+    color: black;
     background-color: transparent;
 }
 
 .item button:hover{
-    border: 1px solid rgb(223, 41, 199);
+    border: 1.1px solid rgb(223, 41, 199);
     color: rgb(223, 41, 199);
 }
 
-.edit {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.65);
-}
 
-.card {
-    margin: 9% auto;
-    width: 35%;
-    height: 20%;
-    padding: 1rem;
-    background-color: #90e0ef;
-    border-radius: 15px;
-    box-sizing: border-box;
-    box-shadow: 0 0 5px blue;
+
+
+
+.edit {
+  width: 35%;
+  position: absolute;
+  top: 8rem;
+  height: 14rem;
+  transform: translateX(-1.5rem);
+  padding: 0.5rem;
+  background-color: rgb(128 238 147);
+  box-sizing: border-box;
+  border-radius: 10px;
+  z-index: 3;
+  box-shadow: -2px 3px 5px rgb(128, 238, 147);
 }
-.card div {
+.edit div {
     display: flex;
     padding: 3px;
     padding-left: 0;
     align-items : center;
  }
 
- .card input {
+ .edit input {
     border: 0.5px solid rgb(209, 200, 200);
     border-radius: 3px;
+    font-size: 1.5rem;
     box-sizing: border-box;
-    padding: 0 0 1rem 3px;
-    margin: 2px auto;
+    padding: 0 0 8rem 3px;
+    margin: 5px auto;
+    border-radius: 20;
     width: 100%;
-    height: 40%;
+    height: 80%;
+    background-color: #bbe0e3;
 }
 
-.card input:hover,
-.card input:focus {
-  border-color: #e63946;
-  background-color: #f8edeb;
-  outline: 1px red;
+.edit input:hover,
+.edit input:focus {
+    background-color: #bbe0e3;
+    outline: none;
 }
 
 
-.card button {
-    background-color: transparent;
-    color: #a44a3f;
-    border: 1px solid #a44a3f;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 0 0.10rem;
-    
+.edit button {
+  width: 4rem;
+  height: 2rem;
+  margin: 0 0.1rem;
+  border-radius: 5px;
+  border: none;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #d62828;
   }
-  .card button:hover {
-    color: magenta;
-    border-color: magenta;
+  
+  .edit button:hover {
+    background-color: #a11717;
+    color: white;
+    border: none;
+  }
+
+  .edit button:first-child {
+    width: 4rem;
+    height: 2rem;
+    color: rgba(255, 255, 255, 0.87);
+    margin: 0 0.1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #219ebc;
+}
+
+.edit button:first-child:hover {
+    background-color: #157d97;
+    color: white;
+    border: none;
+  }
+
+  @media(max-width: 800px){
+    .edit {
+      transform: scale(1.3,0.8) translate(1.8rem,-5.4rem)
+    }
+  
+    .edit input {
+        font-size: 1.3rem;
+    }
+
+    .edit button {
+      margin-left: -0.5rem;
+
+      transform: scale(0.8, 0.8)
+    }
+    
+    .edit button {
+      transform: scale(0.8, 0.8)
+      }
+
+      .edit button:first-child {
+       margin-left: -0.4rem;
+    }
+  }
+
+  @media(max-width: 600px){
+    .edit {
+      transform: scale(1.15,0.7) translate(2rem, -7.5rem)
+    }
+  
+    .edit input {
+        font-size: 1.3rem;
+    }
+
+    .item button .hide {
+      display: none;
+    }
+
+    .item button{
+      width: 1.5rem;
+      height: 1.5rem;
+  }
+  .edit button {
+    width: 4rem;
+    height: 2rem;
+ }
+  
+  }
+  
+
+  @media(max-width: 470px){
+    .edit {
+      width: 50%;
+      transform: scale(1,0.6) translate(1.8rem,-9.5rem);
+      
+    }
+  
+    .edit input {
+        font-size: 1.3rem;
+        padding: 1rem 0 7rem 3px;
+    }
+  }
+
+  @media(max-width: 280px) {
+    .edit {
+      width: 70%;
+      transform: scale(1,0.5) translate(1rem, -13rem)
+      
+    }
+  
+    .edit input {
+        font-size: 1.3rem;
+        padding: 1rem 0 9rem 3px;
+    }
+
+    .edit button {
+    transform: scale(0.7, 0.7)
+  }
+  
+  .edit button {
+    transform: scale(0.7, 0.7)
+    }
   }
 
